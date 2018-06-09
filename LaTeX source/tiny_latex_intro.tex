@@ -1,0 +1,75 @@
+\subsection{Формулы}
+Можно писать обычные формулы в тексте, наподобие $4xy = (x+y)^2+(x-y)\cdot(x-y)$. Можно делать и выключные формулы: \[-1 = e^{i\cdot \pi}.\]
+
+Можно даже делать формулы с номером с помощью \verb"\begin{equation}":
+\begin{equation}
+\label{aMasterEquation}
+E=mc^2,
+\end{equation}
+и потом ссылаться на них так:~\eqref{aMasterEquation}.
+
+
+\subsection{Перекрёстные ссылки}
+Можно, кстати, ссылаться на параграфы, например, можно сослаться на параграф~\ref{Algo}. Можно сослаться и на страницу~\pageref{Algo}, на которой находится параграф~\ref{Algo}.
+
+\newpage % Разрыв страницы. Его можно сделать и командой \pagebreak
+
+\subsection{Списки}
+Есть два типа списков:
+\begin{enumerate}
+\item нумерованные списки,
+    \begin{enumerate}
+    \item причём их можно вкладывать друг в друга,
+    \item вот такие дела,
+    \item\label{aListSubitem} красота,
+    \end{enumerate}
+\item и ненумерованные списки:
+    \begin{itemize}
+    \item ученье
+    \item свет
+    \end{itemize}
+\end{enumerate}
+
+Связка команд \verb"\label" и \verb"\ref" работает и тут: например, можно сослаться на пункт \ref{aListSubitem}.
+
+
+\subsection{Описания алгоритмов}\label{Algo}
+Код на Питоне:
+\begin{python}
+def maximum( x, y ):
+    #something strange happens here
+    if x > y:
+        print( "x was greater" )
+        return x
+    else:
+        return y
+\end{python}
+
+Псевдокод:
+\begin{algorithm}\caption{Поиск в глубину}
+\DontPrintSemicolon
+\KwData{граф $G=(V,E)$}
+\KwResult{список вершин $L$ в порядке DFS}
+\Begin{
+$S \longleftarrow V$\;
+$L \longleftarrow \emptyset$\;
+\While{$S \neq \emptyset$}{
+    \While{$|S \cap ImSucc(x)| \neq |S|$}{
+        \If{$NbPredInMin(x) = 0$ {\bf and} $NbPredNotInMin(x) = 0$}{
+            $AppendToMin(x)$
+        }
+        \For{$z \in ImPred(y) \cap Min$}{
+            remove the arc $zy$ from $V$\;
+            $NbSuccInS(z) \longleftarrow NbSuccInS(z) - 1$\;
+            move $z$ in $T$ to the list preceding its present list\;
+            \{i.e. If $z \in T[k]$, move $z$ from $T[k]$ to $T[k-1]$\}\;
+        }
+        $NbPredInMin(y) \longleftarrow 0$\;
+    }
+}
+}
+\end{algorithm}
+
+
+По-видимому, Ферма всё же не обладал доказательством того, что уравнение $x^n+y^n=z^n$ разрешимо в натуральных числах только при $n=2$. К счастью, сегодня такое доказательство известно. Сегодня особенно удобно оформлять математические тексты, даже такие длинные, как доказательство теоремы Ферма, благодаря \LaTeX. Если потребуются особые шрифты, они есть:
+\[ n\in\mathbb{N},\,a\in\mathcal{A},\, p\in\mathrm{P} \]

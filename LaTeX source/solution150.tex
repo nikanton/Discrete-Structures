@@ -1,0 +1,10 @@
+\begin{task}{150}
+Пусть $f, g, h$ -- неубывающие функции из $\mathbb{R^+}$ в $\mathbb{R^+}$. Пусть $n\rightarrow\infty$. Верно ли, что если $f(n)=O(g(n))$ и $g(n)=O(h(n))$, то обязательно $f(n)=O(h(n))$? Если верно, то обоснуйте, опираясь исключительно на определения. Если же не верно в общем случае, то приведите соответствующий контрпример.
+\end{task}
+
+\begin{solution}\\
+$f(n)=O(g(n)) \Leftrightarrow \exists C_1 \;\exists N_1\; \forall n\geq N_1: f(n)\leq C_1 g(n)$\\
+$g(n)=O(h(n)) \Leftrightarrow \exists C_2 \;\exists N_2\; \forall n\geq N_2: g(n)\leq C_1 h(n)$\\
+$\Rightarrow \exists C=C_1\cdot C_2\; \exists N=\max(N_1, N_2)\;\forall n\geq N: f(n)\leq C_1 g(n)\leq C_1\cdot C_2 h(n)=Ch(n)$
+$\Leftrightarrow f(n)=O(h(n))$ 
+\end{solution}

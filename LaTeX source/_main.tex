@@ -1,0 +1,95 @@
+\documentclass[12pt,a4paper]{extreport}
+\usepackage[l2tabu,orthodox]{nag}
+\usepackage[left=10mm,right=50mm, top=15mm,bottom=15mm,bindingoffset=0cm]{geometry}
+\usepackage{indentfirst}
+
+\usepackage{ccaption}
+\captiondelim{. }
+
+\usepackage{amssymb,amsfonts}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ucs}
+\usepackage[russian,english]{babel}
+\usepackage[babel = true]{microtype}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,.75}
+\definecolor{darkred}{rgb}{.7,0,0}
+\definecolor{darkgreen}{rgb}{0,.7,0}
+
+\usepackage[normalem]{ulem}
+\usepackage[textwidth=4cm,textsize=tiny]{todonotes}
+\newcommand{\fix}[2]{{\textcolor{red}{\uwave{#1}}\todo[fancyline]{#2}}}
+\newcommand{\hl}[1]{{\textcolor{red}{#1}}}
+\newcommand{\cmd}[1]{{\ttfamily{\textbackslash #1}}}
+\usepackage[pverb-linebreak=no]{examplep}
+\newcommand{\vrb}[1]{\PVerb{#1}}
+\newcommand{\vrbb}[1]{\texttt{\textbackslash}\PVerb{#1}}
+\newcommand{\rulez}{{\href{https://goo.gl/FhyJJm}{Правила}}}
+
+
+\usepackage{listings}
+    \lstnewenvironment{python}{\lstset{language=Python,
+    tabsize=4,
+    basicstyle=\footnotesize\ttfamily,
+    stringstyle=\color{darkgreen},
+    commentstyle=\color{darkred},
+    keywordstyle=\color{darkblue},
+    mathescape=true,
+    showstringspaces=false,
+    xleftmargin=.04\textwidth}}{}
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+\usepackage[
+    draft = false,
+    unicode = true,
+    colorlinks = true,
+    allcolors = blue,
+    hyperfootnotes = true
+]{hyperref}
+
+\usepackage{amsmath}
+
+\usepackage{amsthm}
+    \theoremstyle{plain}
+    \newtheorem{theorem}{Теорема}
+    \newtheorem{lemma}{Лемма}
+    \newtheorem{proposition}{Утверждение}
+    \newtheorem{corollary}{Следствие}
+    \theoremstyle{definition}
+    \newtheorem{definition}{Определение}
+    \newtheorem{notation}{Обозначение}
+    \newtheorem{example}{Пример}
+
+\newenvironment{task}[1]
+    {\par\noindent\textbf{Задача \href{http://progensys.dainiak.com/problem-#1}{#1}. }}
+    {\smallskip}
+\newenvironment{solution}
+    {\par\noindent\textbf{Решение. }}
+    {\bigskip}
+
+\title{Решения задач по курсу «Дискретные структуры»}
+\author{Антон Никишин}
+
+\begin{document}
+\maketitle
+
+% Таким образом нужно добавлять решения задач:
+\input{solution314}
+\input{solution73}
+\input{solution15}
+\input{solution72}
+\input{solution318}
+\input{solution150}
+\input{solution146}
+\input{solution322}
+\input{solution320}
+\input{solution307}
+\end{document}

@@ -1,0 +1,30 @@
+\begin{task}{146}
+Пусть $n\rightarrow \infty$. Найдите асимптотику полиномиального коэффициента $P(2n, 5n, n, \sqrt{n})=\frac{(8n+\sqrt{n})!}{(2n)!(5n)!n!\sqrt{n}!}$. Под нахождением асимптотики подразумевается нахождение такой функции $f$, между которой и оцениваемой величиной можно было бы составить знак $\sim$. Ответ принимается только в виде формулы, не содержащей неопределённостей вида $1^\infty, 0^0, (\text{const} + 0)^\infty$  и пр.
+\end{task}
+
+\begin{solution}
+\par Для начала воспользуемся формулой Стирлинга
+\begin{equation*}
+    n!=\sqrt{2\pi n}\left(\frac{n}{e}\right)^{n},
+\end{equation*}
+получим:
+\begin{align*}
+    P(2n, 5n, n, \sqrt{n})
+    &=\frac{(8n+\sqrt{n})!}{(2n)!(5n)!n!\sqrt{n}!}\sim\displaybreak[3]\\
+    &\sim\frac{\sqrt{2\pi(8n+\sqrt{n})}\left(\frac{8n+\sqrt{n}}{e}\right)^{8n+\sqrt{n}}}{\sqrt{2\pi}^4\sqrt{2n\cdot 5n\cdot n\cdot \sqrt{n}}\left(\frac{2n}{e}\right)^{2n}\left(\frac{5n}{e}\right)^{5n}\left(\frac{n}{e}\right)^{n}\left(\frac{\sqrt{n}}{e}\right)^{\sqrt{n}}}\sim\\
+    &\sim\frac{\sqrt{8n+\sqrt{n}}(8n+\sqrt{n})^{8n+\sqrt{n}}}{\sqrt{2\pi}^3\sqrt{10n^3\sqrt{n}}(2n)^{2n}(5n)^{5n}(n)^{n}(\sqrt{n})^{\sqrt{n}}}
+\end{align*}
+Отдельно рассмотрим чему асимптотически равняется $(8n+\sqrt{n})^{8n+\sqrt{n}}$:
+\begin{align*}
+    e^{(8n+\sqrt{n})\ln{(8n+\sqrt{n})}}
+    &=e^{(8n+\sqrt{n})(\ln{n}+\ln{(8+\frac{1}{\sqrt{n}})})}\sim n^{8n+\sqrt{n}}e^{(8n+\sqrt{n})(\ln8+\frac{1}{8\sqrt{n}}-\frac{1}{128n} + O(n^{-1}))}\sim\\
+    &\sim n^{8n+\sqrt{n}}8^{(8n+\sqrt{n})}e^{\sqrt{n}+\frac{1}{16}}
+\end{align*}
+Окончательно:
+\begin{align*}
+    P
+    &\sim\frac{\sqrt{8n}n^{8n+\sqrt{n}}8^{(8n+\sqrt{n})}e^{\sqrt{n}+\frac{1}{16}}}{\sqrt{2\pi}^3\sqrt{10n^3\sqrt{n}}(2n)^{2n}(5n)^{5n}(n)^{n}(\sqrt{n})^{\sqrt{n}}}=\\
+    &=\frac{n^{8n+\sqrt{n}+\frac{1}{2}-\frac{7}{4}-2n-5n-n-\frac{\sqrt{n}}{2}}2^{24n+3\sqrt{n}+\frac{3}{2}-\frac{3}{2}-2n}e^{\sqrt{n}+\frac{1}{16}}}{\sqrt{10\pi^3}5^{5n}}=\\
+    &=\frac{n^{\frac{\sqrt{n}}{2}-\frac{5}{4}}2^{22n+3\sqrt{n}}e^{\sqrt{n}+\frac{1}{16}}}{\sqrt{10\pi^3}5^{5n}}
+\end{align*}
+\end{solution}
